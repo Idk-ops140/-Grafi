@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Grafix - A retro platform to post and share (no adult content, gore, illegal activities, or harassment).">
+  <title>Grafix - Retro Social Hub</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div id="container">
+    <!-- Sidebar -->
+    <div id="sidebar">
+      <h1>Grafix</h1>
+      <ul>
+        <li><a href="#home">Home</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#post">Post</a></li>
+        <li><a href="#rules">Rules</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </div>
+
+    <!-- Main Content -->
+    <div id="main-content">
+      <h2>Welcome to Grafix!</h2>
+      <p>This is your go-to platform for sharing your creativity in a nostalgic way. Posts are permanent, so choose wisely.</p>
+
+      <h3 id="about">About Grafix</h3>
+      <p>Grafix is inspired by the retro internet era. It's simple, straightforward, and all about the community.</p>
+
+      <h3 id="post">Make a Post</h3>
+      <form id="post-form">
+        <label for="username">Your Name:</label><br>
+        <input type="text" id="username" name="username" placeholder="Your name" required><br><br>
+
+        <label for="content">Your Post:</label><br>
+        <textarea id="content" name="content" placeholder="Write your thoughts here..." required></textarea><br><br>
+
+        <button type="submit">Post</button>
+      </form>
+      <div id="post-section">
+        <h3>Recent Posts:</h3>
+        <div id="posts">
+          <!-- User posts will appear here -->
+        </div>
+      </div>
+
+      <h3 id="rules">Posting Rules</h3>
+      <ul>
+        <li>No adult content.</li>
+        <li>No gore or extreme violence.</li>
+        <li>No illegal activities.</li>
+        <li>No harassment or hateful speech.</li>
+      </ul>
+
+      <h3 id="contact">Contact Us</h3>
+      <p>Email us at: <a href="mailto:admin@grafix-retro.com">admin@grafix-retro.com</a></p>
+    </div>
+  </div>
+
+  <script>
+    const form = document.getElementById("post-form");
+    const posts = document.getElementById("posts");
+
+    form.addEventListener("submit", (e) => {
+      e.preventDefault();
+      const username = document.getElementById("username").value;
+      const content = document.getElementById("content").value;
+
+      const post = document.createElement("div");
+      post.className = "post";
+      post.innerHTML = `<strong>${username}</strong>: <p>${content}</p>`;
+      posts.prepend(post);
+
+      form.reset();
+    });
+  </script>
+</body>
+</html>
